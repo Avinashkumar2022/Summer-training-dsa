@@ -26,7 +26,7 @@ class myClass
 
 int main()
 {
-
+    
     myClass class1;
     myClass class2;
     class1.num;
@@ -34,5 +34,5 @@ int main()
     cout<<class1.add(2,3)<<endl;
     cout<<class2.add(4,7)<<endl;
     cout<<class1.add(5,4)<<endl;
-    
+
 }
