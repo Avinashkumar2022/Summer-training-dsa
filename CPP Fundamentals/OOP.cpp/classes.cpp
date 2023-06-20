@@ -18,7 +18,7 @@ class myClass
 
     private:
     int num2;
-    string text2;
+    string  text2;
 
 };
 
