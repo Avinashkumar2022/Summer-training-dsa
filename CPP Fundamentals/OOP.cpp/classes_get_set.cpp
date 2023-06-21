@@ -13,9 +13,17 @@ class Student
     {
         cout<<"Print the value :"<<x<<endl;
     }
+
+    //getters
     int getPassword()
     {
         return password;
+    }
+
+    //setters
+    void setPassword(int input)
+    {
+        password=input;
     }
 
     
@@ -27,8 +35,12 @@ int main()
     cout<<s1.name<<endl;
     s2.name="Danny";
     cout<<s2.name<<endl;
+
     int pw=s1.getPassword();
-    cout<<s1.getPassword()<<endl;
-    cout<<pw<<endl;
+    cout<<"Old password is: "<<s1.getPassword()<<endl;
+    // cout<<pw<<endl;
+
+    s1.setPassword(9876);
+    cout<<"New password is: "<<s1.getPassword()<<endl;
     
 }
