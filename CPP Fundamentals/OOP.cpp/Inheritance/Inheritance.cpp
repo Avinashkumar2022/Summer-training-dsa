@@ -43,5 +43,7 @@ int main()
 -Single
 -Multilevel
 -Multiple
+-Hierarchical
+-Hybrid
 
 */
