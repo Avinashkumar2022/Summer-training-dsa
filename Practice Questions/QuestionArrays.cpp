@@ -22,14 +22,14 @@ int main()
 
     for(int i=0; i<10;i++)
     {
-        std::cout<<arr[i]<<" ";
+        cout<<arr[i]<<" ";
     }
-    std::cout<<endl;
+    cout<<endl;
     
     reverse_array(arr,10);
 
      for(int i=0; i<10;i++)
     {
-        std::cout<<arr[i]<<" ";
+        cout<<arr[i]<<" ";
     }
 }
