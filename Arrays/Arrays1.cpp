@@ -9,6 +9,9 @@ using namespace std;
 
 // Searching and sorting is easier in Array when compared to linked list.
 
+// Size of arrays can't be changed later after the initialisaion.
+
+
 bool linearSearch(int arr[],int size,int key)
 {
     for(int i=0;i<size;i++)
