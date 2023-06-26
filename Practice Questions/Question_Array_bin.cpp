@@ -1,10 +1,11 @@
-#include <iostream>
+#include<iostream>
+using namespace std;
 
-int findFirstOccurrence(int arr[], int size, int key)
+int findLastOccurrence(int arr[], int size, int key)
 {
     int start = 0;
     int end = size - 1;
-    int firstOccurrence = -1;
+    int lastOccurrence = -1;
 
     while (start <= end)
     {
@@ -12,8 +13,8 @@ int findFirstOccurrence(int arr[], int size, int key)
 
         if (arr[mid] == key)
         {
-            firstOccurrence = mid;
-            end = mid - 1; // Look for the first occurrence on the left side
+            lastOccurrence = mid;
+            start = mid + 1; // Look for the last occurrence on the right side
         }
         else if (arr[mid] < key)
         {
@@ -25,27 +26,27 @@ int findFirstOccurrence(int arr[], int size, int key)
         }
     }
 
-    return firstOccurrence;
+    return lastOccurrence;
 }
 
 int main()
 {
-    int arr[] = {2, 4, 8, 8, 11, 19, 33, 41,33, 55, 99};
+    int arr[] = {2, 4, 8, 8, 11, 19, 33, 41, 33, 55, 99};
     int size = sizeof(arr) / sizeof(arr[0]);
     int key;
 
     std::cout << "Enter the number you want to find: ";
     std::cin >> key;
 
-    int firstOccurrence = findFirstOccurrence(arr, size, key);
+    int lastOccurrence = findLastOccurrence(arr, size, key);
 
-    if (firstOccurrence == -1)
+    if (lastOccurrence == -1)
     {
         std::cout << "Element not found";
     }
     else
     {
-        std::cout << "First occurrence found at index: " << firstOccurrence;
+        std::cout << "Last occurrence found at index: " << lastOccurrence;
     }
 
     return 0;
