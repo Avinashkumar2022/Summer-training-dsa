@@ -1,5 +1,5 @@
 # Summer-training-dsa
-Summer training dsa stuff I did during the 2023 summer training program.
+DSA work I did during the 2023 summer training program.
 
 This repository contains all the work I did during the period of june and july 2023.
 
