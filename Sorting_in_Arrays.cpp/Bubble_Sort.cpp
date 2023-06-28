@@ -5,16 +5,13 @@ void bubbleSort(int *arr,int size)
 {
     for(int j=0;j<=size-1;j++)
     {
-        for(int i=0;i<=size-1;i++)
+        for(int i=0;i<=size-j-1;i++)
         {
-            int max_index=i+1;
-            if(arr[max_index]>=arr[i])
+            if(arr[i]>=arr[i+1])
             {
-                max_index=i;
+                swap(arr[i],arr[i+1]);
             }
-            else{
-                swap(arr[max_index],arr[i]);
-            }
+                
         }
     }
 }
@@ -33,9 +30,11 @@ int main()
     }
 
     bubbleSort(array_Of_Integers,num_of_elements);
-
+    cout<<"Sorted array: ";
     for(int i=0;i<num_of_elements;i++)
     {
         cout<<array_Of_Integers[i]<<" ";
     }
+
+    delete[] array_Of_Integers;
 }
