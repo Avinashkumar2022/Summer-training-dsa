@@ -17,6 +17,13 @@ Selection Sort has a time complexity of O(n^2), where n is the number of element
 */
 
 
+/*
+
+
+
+*/
+
+
 void selection_Sort(int* arr,int size)
 {
     for(int i=0;i<size-1;i++)
@@ -55,4 +62,6 @@ int main()
     {
         cout<<arr[i]<<" ";
     }
+
+    delete[] arr;
 }
