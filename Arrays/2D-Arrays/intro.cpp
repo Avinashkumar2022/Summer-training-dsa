@@ -3,9 +3,7 @@ using namespace std;
 
 int main()
 {
-    //Create a 2D array-
-    // int arr[3][4];
-    // int arr[3][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+
 
     int rows, columns;
     cout<<"Enter total number of rows: ";
@@ -19,6 +17,7 @@ int main()
 
     for (int row = 0; row < rows; row++)
     {
+        array2d[row] = new int[columns];
         for (int column = 0; column < columns; column++)
         {
             cin>>array2d[row][column];

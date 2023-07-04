@@ -1,48 +1,92 @@
-//Print the 2D array in a wave like pattern
-/*
-              -> 
-       S|   |   |
-        |   |   |
-        |   |   |E
-          ->
-
-*/
+// Print the elements of a 2D array in a wave like pattern.
 
 
 #include<iostream>
 using namespace std;
 
-int main() 
+int main()
 {
-    //Create a 2D array-
-    int arr[3][4];
+    int rows, columns;
+    cout<<"Enter total number of rows: ";
+    cin>> rows;
+    cout<<"Enter total number of columns: ";
+    cin>> columns;
 
-    for (int row = 0; row < 3; row++)
-    {
-        for (int column = 0; column < 4; column++)
+    int** array2d=new int*[rows];
+
+    //Taking input from the user into the array
+
+    for (int row = 0; row < rows; row++)
+    { 
+        array2d[row] = new int[columns];
+        for (int column = 0; column < columns; column++)
         {
-            cin>>arr[row][column];
+            cin>>array2d[row][column];
         }
         
     }
 
+    //Normal matrix for comparison
 
+    cout<<"The matrix without the alteration:"<<endl;
 
-    for(int row=0;row<3;row++)
-    {
-        for(int column=0;column<4;column++)
+    for(int column=0;column<columns;column++)
+    { 
+        for(int row=0;row<rows;row++)
         {
-            cout<<arr[column][row]<<"\t";
+            cout<<array2d[row][column]<<"\t";
         }
         cout<<endl;
     }
 
-    for(int i=0;i<3;i++)
-    {
-        for(int j=0;j<4;j++)
+    //Sideways wave
+
+    cout<<endl<<endl<<"The matrix with the alteration:"<<endl;
+    for(int column=0;column<columns;column++)
+    {  
+        if(column%2==0)
         {
-            
+            for(int row=0;row<rows;row++)
+            {
+                cout<<array2d[row][column]<<"\t";
+            }
         }
+        else{
+            for(int row=rows-1;row>=0;row--)
+            {
+                cout<<array2d[row][column]<<"\t";
+            }
+        }
+        cout<<endl;
     }
 
+    //top-down wave
+
+    cout<<endl<<endl<<"The Matrix with another alteration: "<<endl;
+      for (int row = 0; row < rows; row++)
+    {
+        if (row % 2 == 0)
+        {
+            for (int column = 0; column < columns; column++)
+            {
+                cout << array2d[row][column] << "\t";
+            }
+        }
+        else
+        {
+            for (int column = columns - 1; column >= 0; column--)
+            {
+                cout << array2d[row][column] << "\t";
+            }
+        }
+        cout << endl;
+    }
+
+
+    //Deallocating the memory, not part of the question.
+    for (int row = 0; row < rows; row++)
+    {
+        delete[] array2d[row];
+    }
+    delete[] array2d;
 }
