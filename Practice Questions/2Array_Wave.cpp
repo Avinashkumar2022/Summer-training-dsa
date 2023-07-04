@@ -4,6 +4,35 @@
 #include<iostream>
 using namespace std;
 
+void topDownWave(int** array,int rows,int columns)
+{
+    
+    cout<<endl<<endl<<"The Matrix with another alteration: "<<endl;
+
+      for (int row = 0; row < rows; row++)
+    {
+        if (row % 2 == 0)
+        {
+            for (int column = 0; column < columns; column++)
+            {
+                cout << array[row][column] << "\t";
+            }
+        }
+        else
+        {
+            for (int column = columns - 1; column >= 0; column--)
+            {
+                cout << array[row][column] << "\t";
+            }
+        }
+        cout << endl;
+    }
+
+
+}
+
+// void sideWays
+
 int main()
 {
     int rows, columns;
@@ -62,25 +91,26 @@ int main()
 
     //top-down wave
 
-    cout<<endl<<endl<<"The Matrix with another alteration: "<<endl;
-      for (int row = 0; row < rows; row++)
-    {
-        if (row % 2 == 0)
-        {
-            for (int column = 0; column < columns; column++)
-            {
-                cout << array2d[row][column] << "\t";
-            }
-        }
-        else
-        {
-            for (int column = columns - 1; column >= 0; column--)
-            {
-                cout << array2d[row][column] << "\t";
-            }
-        }
-        cout << endl;
-    }
+    topDownWave(array2d,rows,columns);
+    // cout<<endl<<endl<<"The Matrix with another alteration: "<<endl;
+    //   for (int row = 0; row < rows; row++)
+    // {
+    //     if (row % 2 == 0)
+    //     {
+    //         for (int column = 0; column < columns; column++)
+    //         {
+    //             cout << array2d[row][column] << "\t";
+    //         }
+    //     }
+    //     else
+    //     {
+    //         for (int column = columns - 1; column >= 0; column--)
+    //         {
+    //             cout << array2d[row][column] << "\t";
+    //         }
+    //     }
+    //     cout << endl;
+    // }
 
 
     //Deallocating the memory, not part of the question.
