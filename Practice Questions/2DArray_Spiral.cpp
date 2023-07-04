@@ -17,28 +17,24 @@ void spiral(int** array,int rows,int columns)
         {
             cout<<array[top_Row][i]<<"\t";
         }
-        // cout<<endl;
         top_Row++;
 
         for(int i=top_Row;i<=bottom_Row;i++)
         {
             cout<<array[i][right_Column]<<"\t";
         }
-        // cout<<endl;
         right_Column--;
 
         for(int i=right_Column;i>=left_Column;i--)
         {
             cout<<array[bottom_Row][i]<<"\t";
         }
-        // cout<<endl;
         bottom_Row--;
 
         for(int i=bottom_Row;i>=top_Row;i--)
         {
             cout<<array[i][left_Column]<<"\t";
         }
-        // cout<<endl;
         top_Row++;
 
     }
