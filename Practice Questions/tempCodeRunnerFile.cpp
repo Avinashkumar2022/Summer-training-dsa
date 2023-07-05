@@ -34,7 +34,7 @@ void spiral(int** array,int rows,int columns)
         {
             cout<<array[i][left_Column]<<"\t";
         }
-        left_Column++;
+        top_Row++;
 
     }
 }
