@@ -24,8 +24,6 @@ bool binarySearch(int* array,int left,int right,int key)
     }
 }
 
-
-
 int main()
 {
     int size,key;
