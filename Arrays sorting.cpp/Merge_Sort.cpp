@@ -1,29 +1,58 @@
 #include<iostream>
 using namespace std;
 
-void merge(int* arr,int left,int right)
+void merge(int* arr, int left, int right)
 {
-    int mid=left+((right-left)/2);
-    int lenght1=mid-left+1;
-    int length2=right-mid;
+    int mid = left + ((right - left) / 2);
+    int length1 = mid - left + 1;
+    int length2 = right - mid;
 
-    int* first=new int[lenght1];
-    int* second=new int[length2];
+    int* first = new int[length1];
+    int* second = new int[length2];
 
-    int pointer=left;
-    for(int i=0;i<lenght1;i++)
+    int pointer = left;
+    for (int i = 0; i < length1; i++)
     {
-        first[i]=arr[pointer++];
+        first[i] = arr[pointer++];
     }
 
-    pointer=mid+1;
-    for(int i=0;i<length2;i++)
+    pointer = mid + 1;
+    for (int i = 0; i < length2; i++)
     {
-        second[i]=arr[pointer++];
+        second[i] = arr[pointer++];
     }
 
+    // Merge the two arrays
 
+    int index1 = 0;
+    int index2 = 0;
+
+    pointer = left;
+    while (index1 < length1 && index2 < length2)
+    {
+        if (first[index1] < second[index2])
+        {
+            arr[pointer++] = first[index1++];
+        }
+        else
+        {
+            arr[pointer++] = second[index2++]; // Error: should be ++index2 instead of index2++
+        }
+    }
+
+    while (index1 < length1)
+    {
+        arr[pointer++] = first[index1++];
+    }
+    while (index2 < length2)
+    {
+        arr[pointer++] = second[index2++];
+    }
+
+    delete[] first;
+    delete[] second;
 }
+
 
 void mergeSort(int* array,int left,int right)
 {
