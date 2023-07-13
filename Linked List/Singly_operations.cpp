@@ -25,19 +25,6 @@ class Node{
 };
 
 
-bool search(Node* head,int key)
-{
-    Node* temp=head;
-    while (temp != NULL) 
-    {
-        if(temp->data==key)
-        {
-            return true;
-        }
-        temp=temp->next;
-    }
-    return false;
-}
 //Insert at Tail
 
 void insertAtHead(Node*& head,int val)
@@ -69,6 +56,49 @@ void insertAtTail(Node* head,int val)
     temp->next=n;
 }
 
+void deletion(Node*& head,int val)
+{
+    Node* temp=head;
+    if(temp==NULL)
+    {
+        cout<<"linked list is empty";
+        return;
+    }
+    while(temp->next->data!=val)
+    {
+            temp=temp->next;
+    }
+    Node* toDelete=temp->next;
+    temp->next=temp->next->next;
+
+    delete toDelete;
+}
+
+void deleteAtHead(Node*& head,int val)
+{
+    Node* temp=head;
+    if(temp=NULL)
+    {
+        cout<<"linked list is empty";
+        return;
+    }
+    temp=temp->next;
+}
+
+bool search(Node* head,int key)
+{
+    Node* temp=head;
+    while (temp != NULL) 
+    {
+        if(temp->data==key)
+        {
+            return true;
+        }
+        temp=temp->next;
+    }
+    return false;
+}
+
 int main() {
     Node* head = new Node(1); // Create the head node
     insertAtTail(head, 2); // Insert 2 at the tail
@@ -77,23 +107,34 @@ int main() {
     insertAtHead(head,10);
     insertAtHead(head,4);
 
-    bool result=search(head,1);
-    if(result)
-    {
-        cout<<"Element exists"<<endl;
-    }
-    else{
-        cout<<"Element doesn't exist"<<endl;
-    }
-
-
-    // Print the elements of the linked list
     Node* temp = head;
     while (temp != NULL) {
         cout << temp->data << " -> ";
         temp = temp->next;
     }
-    cout<<"NULL";
+    cout<<"NULL"<<endl;
+
+    deletion(head,2);
+
+
+    bool result=search(head,2);
+
+
+    // Print the elements of the linked list
+    Node* temp2 = head;
+    while (temp2 != NULL) {
+        cout << temp2->data << " -> ";
+        temp2 = temp2->next;
+    }
+    cout<<"NULL"<<endl;
+
+    if(result)
+    {
+        cout<<endl<<"Element exists";
+    }
+    else{
+        cout<<endl<<"Element doesn't exist";
+    }
 
     return 0;
 }
