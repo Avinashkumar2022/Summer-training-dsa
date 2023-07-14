@@ -47,22 +47,50 @@ void insertAtTail(Node* &head,int val)
     newnode->prev=temp;
 }
 
+void deleteAtHead(Node*& head)
+{
+    if (head == NULL)
+        return;
+
+    Node* toDelete = head;
+    head = head->next;
+    if (head != NULL)
+    {
+        head->prev = NULL;
+    }
+    delete toDelete;
+}
+
 void deletion(Node* head, int key)
 {
+    if(head==NULL)
+    {
+        cout<<"Linked list is empty";
+        return;
+    }
+
     Node* temp=head;
-    while(temp->next->data!=key)
+
+    while(temp!=NULL && temp->data!=key)
     {
         temp=temp->next;
     }
-    Node* toDelete=temp->next;
-    temp->next=temp->next->next;
-    if(temp->next->next!=NULL)
+    
+    if(temp==NULL)
     {
-    temp->next->next->prev=temp;
+        cout<<"Key not found in the linked list";
+        return;
     }
 
-    delete toDelete;
-    delete temp->next;
+    if (temp->prev != NULL) {
+        temp->prev->next = temp->next;
+    }
+
+    if (temp->next != NULL) {
+        temp->next->prev = temp->prev;
+    }
+
+    delete temp;
 }
 
 void display(Node* head)
@@ -70,7 +98,7 @@ void display(Node* head)
     Node* temp=head;
     while(temp!=NULL)
     {
-        cout<<temp->data<<" ";
+        cout<<temp->data<<"\t";
         temp=temp->next;
     }
     cout<<endl;
@@ -92,11 +120,13 @@ int main()
     insertAtHead(head,4);
     insertAtHead(head,5);
     insertAtHead(head,6);
+
+    cout<<"Before deletion:    ";
     display(head);
 
-    cout<<"After the deletion"<<endl;
-
+    cout<<"After the deletion: ";
     deletion(head,-3);
     display(head);
+    
     return 0;
 }
