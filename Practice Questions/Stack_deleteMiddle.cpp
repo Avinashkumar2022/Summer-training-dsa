@@ -19,5 +19,6 @@ void deleteMiddle(stack<int> &inputStack,int size,int count)
 
 int main()
 {
-
+    stack<int> st;
+    
 }
