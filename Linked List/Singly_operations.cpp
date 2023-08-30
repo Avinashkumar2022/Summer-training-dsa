@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-//We use custom datatypes to make linked list
+//We use user defined datatypes to make linked list
 //First node of the linked list is known as head and last node is known as tail
 
 // There are two parts of a node, one is the data and another is the address of the next node.
